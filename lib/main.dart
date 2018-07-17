@@ -32,7 +32,13 @@ class _MyAppState extends State<MyAppStateful> {
             margin: EdgeInsets.all(10.0),
             child: RaisedButton(
               child: Text('Add Product'),
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  _products.add('Advanced Food Tester');
+                  print(_products);               
+                                });
+                
+              },
             ),
           ),
           Column(
