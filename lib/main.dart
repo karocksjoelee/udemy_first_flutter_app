@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+import './product_manager.dart';
+
 // ** Shorter version using fat arrow, if have only 1 line of code.
 // void main() => runApp(MyApp());
-
 void main() {
   // runApp(:expects Widget)
-  runApp(MyAppStateful());
+  // Already split codes to modules
+  runApp(MyApp());
 }
 
 class MyAppStateful extends StatefulWidget {
@@ -16,6 +18,28 @@ class MyAppStateful extends StatefulWidget {
   }
 }
 
+// Classes are used to create objects - they serve as blueprint for objects.
+class MyApp extends StatelessWidget {
+  // Flutter will always call the widget's build function
+  @override
+  build(BuildContext context) {
+    // when using () means create / construct an object
+    // MaterialApp is a wrapper for our entire app
+    return MaterialApp(
+      // Scaffold creates a new page for the App with nice white background.
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('EasyList'),
+        ),
+        body: ProductMangner(),
+      ),
+    );
+  }
+}
+
+
+// * Doesn't split codes :
+// ---------------------------------------
 // ! _clasName Stands for private class ( Dart actually respect it )
 // Wrapping build() as a State
 class _MyAppState extends State<MyAppStateful> {
@@ -34,10 +58,9 @@ class _MyAppState extends State<MyAppStateful> {
               child: Text('Add Product'),
               onPressed: () {
                 setState(() {
-                  _products.add('Advanced Food Tester');
-                  print(_products);               
-                                });
-                
+                    _products.add('Advanced Food Tester');
+                    print(_products);               
+                  }); 
               },
             ),
           ),
@@ -61,37 +84,4 @@ class _MyAppState extends State<MyAppStateful> {
 
 
 
-// Classes are used to create objects - they serve as blueprint for objects.
-class MyApp extends StatelessWidget {
-  // Flutter will always call the widget's build function
-  @override
-  build(BuildContext context) {
-    // when using () means create / construct an object
-    // MaterialApp is a wrapper for our entire app
-    return MaterialApp(
-      // Scaffold creates a new page for the App with nice white background.
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('EasyList'),
-        ),
-        body: Column(children: <Widget>[
-          Container(
-            margin: EdgeInsets.all(10.0),
-            child: RaisedButton(
-              child: Text('Add Product'),
-              onPressed: () {},
-            ),
-          ),
-          Card(
-            child: Column(
-              children: <Widget>[
-                Image.asset('assets/food.jpg'),
-                Text('Food Paradises')
-              ],
-            ),
-          )
-        ]),
-      ),
-    );
-  }
-}
+
