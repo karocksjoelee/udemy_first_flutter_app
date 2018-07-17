@@ -8,6 +8,46 @@ void main() {
   runApp(MyApp());
 }
 
+class MyAppStateful extends StatefulWidget {
+  @override
+    State<StatefulWidget> createState() {
+      // TODO: implement createState
+      return _MyAppState();
+    }
+}
+
+// ! _clasName Stands for private class ( Dart actually respect it )
+// * Wrapping build() as a State
+class _MyAppState extends State<MyAppStateful> {
+  @override
+  build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('EasyList'),
+        ),
+        body: Column(children: <Widget>[
+          Container(
+            margin: EdgeInsets.all(10.0),
+            child: RaisedButton(
+              child: Text('Add Product'),
+              onPressed: () {},
+            ),
+          ),
+          Card(
+            child: Column(
+              children: <Widget>[
+                Image.asset('assets/food.jpg'),
+                Text('Food Paradise')
+              ],
+            ),
+          )
+        ]),
+      ),
+    );
+  }
+}
+
 // Classes are used to create objects - they serve as blueprint for objects.
 class MyApp extends StatelessWidget {
   // Flutter will always call the widget's build function
