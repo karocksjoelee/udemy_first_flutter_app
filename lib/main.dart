@@ -5,20 +5,21 @@ import 'package:flutter/material.dart';
 
 void main() {
   // runApp(:expects Widget)
-  runApp(MyApp());
+  runApp(MyAppStateful());
 }
 
 class MyAppStateful extends StatefulWidget {
   @override
-    State<StatefulWidget> createState() {
-      // TODO: implement createState
-      return _MyAppState();
-    }
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _MyAppState();
+  }
 }
 
 // ! _clasName Stands for private class ( Dart actually respect it )
-// * Wrapping build() as a State
+// Wrapping build() as a State
 class _MyAppState extends State<MyAppStateful> {
+  List<String> _products = ['Food Tester', 'Food Rester'];
   @override
   build(BuildContext context) {
     return MaterialApp(
@@ -34,19 +35,25 @@ class _MyAppState extends State<MyAppStateful> {
               onPressed: () {},
             ),
           ),
-          Card(
-            child: Column(
-              children: <Widget>[
-                Image.asset('assets/food.jpg'),
-                Text('Food Paradise')
-              ],
-            ),
+          Column(
+            children: _products
+                .map((ele) => Card(
+                      child: Column(
+                        children: <Widget>[
+                          Image.asset('assets/food.jpg'),
+                          Text(ele)
+                        ],
+                      ),
+                    ))
+                .toList(),
           )
         ]),
       ),
     );
   }
 }
+
+
 
 // Classes are used to create objects - they serve as blueprint for objects.
 class MyApp extends StatelessWidget {
@@ -73,7 +80,7 @@ class MyApp extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Image.asset('assets/food.jpg'),
-                Text('Food Paradise')
+                Text('Food Paradises')
               ],
             ),
           )
