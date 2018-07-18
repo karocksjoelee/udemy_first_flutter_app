@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('EasyList'),
         ),
-        body: ProductMangner(),
+        body: ProductMangner('First Product'),
       ),
     );
   }
@@ -51,6 +51,7 @@ class _MyAppState extends State<MyAppStateful> {
         appBar: AppBar(
           title: Text('EasyList'),
         ),
+        // * Column : A widget that displays its children in a vertical array.
         body: Column(children: <Widget>[
           Container(
             margin: EdgeInsets.all(10.0),
