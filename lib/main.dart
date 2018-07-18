@@ -26,6 +26,10 @@ class MyApp extends StatelessWidget {
     // when using () means create / construct an object
     // MaterialApp is a wrapper for our entire app
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.amber,
+        accentColor: Colors.amberAccent
+      ),
       // Scaffold creates a new page for the App with nice white background.
       home: Scaffold(
         appBar: AppBar(
