@@ -4,8 +4,10 @@ import './products.dart';
 import './product_control.dart';
 
 class ProductMangner extends StatefulWidget {
+  
   final String startingProduct;
   ProductMangner(this.startingProduct);
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -33,7 +35,9 @@ class _ProductManangerState extends State<ProductMangner> {
     // TODO: implement build
     return Column(children: <Widget>[
       Container(
-          margin: EdgeInsets.all(10.0), child: ProductControl(_addProduct)),
+          margin: EdgeInsets.all(10.0),
+          child: ProductControl(_addProduct)
+      ),
       Products(_products)
     ]);
   }
