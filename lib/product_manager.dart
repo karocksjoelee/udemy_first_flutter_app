@@ -17,10 +17,12 @@ class ProductMangner extends StatefulWidget {
 
 class _ProductManangerState extends State<ProductMangner> {
   List<String> _products = [];
+  int _counter = 0;
 
   void _addProduct(product) {
     setState(() {
-      _products.add(product);
+      _counter ++;
+      _products.add('$product $_counter');
     });
   }
 
@@ -38,7 +40,9 @@ class _ProductManangerState extends State<ProductMangner> {
           margin: EdgeInsets.all(10.0),
           child: ProductControl(_addProduct)
       ),
-      Products(_products)
+      Expanded(
+        child: Products(_products)
+      )
     ]);
   }
 }
