@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './product_manager.dart';
+import 'package:flutter/rendering.dart';
 
 // ** Shorter version using fat arrow, if have only 1 line of code.
 // void main() => runApp(MyApp());
@@ -8,6 +9,8 @@ void main() {
   // runApp(:expects Widget)
   // Already split codes to modules
   runApp(MyApp());
+  // Enable Debuggin UserInterface
+  // debugPaintSizeEnabled = true;
 }
 
 class MyAppStateful extends StatefulWidget {
