@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import './product_manager.dart';
-import 'package:flutter/rendering.dart';
 
 // ** Shorter version using fat arrow, if have only 1 line of code.
 // void main() => runApp(MyApp());
 void main() {
-  // runApp(:expects Widget)
-  // Already split codes to modules
+  // * runApp(:expects Widget)
+  // * Already split codes to modules
   runApp(MyApp());
-  // Enable Debuggin UserInterface
+  // * Enable Debuggin UserInterface
   // debugPaintSizeEnabled = true;
 }
 
@@ -21,19 +21,19 @@ class MyAppStateful extends StatefulWidget {
   }
 }
 
-// Classes are used to create objects - they serve as blueprint for objects.
+// * Classes are used to create objects - they serve as blueprint for objects.
 class MyApp extends StatelessWidget {
-  // Flutter will always call the widget's build function
+  // * Flutter will always call the widget's build function
   @override
   build(BuildContext context) {
-    // when using () means create / construct an object
-    // MaterialApp is a wrapper for our entire app
+    // * when using () means create / construct an object
+    // * MaterialApp is a wrapper for our entire app
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.amber,
         accentColor: Colors.amberAccent
       ),
-      // Scaffold creates a new page for the App with nice white background.
+      // * Scaffold creates a new page for the App with nice white background.
       home: Scaffold(
         appBar: AppBar(
           title: Text('EasyList'),
@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
 // * Doesn't split codes :
 // ---------------------------------------
 // ! _clasName Stands for private class ( Dart actually respect it )
-// Wrapping build() as a State
+// * Wrapping build() as a State
 class _MyAppState extends State<MyAppStateful> {
   List<String> _products = ['Food Tester', 'Food Rester'];
   @override
